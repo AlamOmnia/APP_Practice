@@ -1,38 +1,16 @@
 package StatePattern;
 
 public class StateD extends DFAState{
-    private DFARunner dfaRunner;
-    public StateD(DFARunner dfaRunner){
-        this.dfaRunner=dfaRunner;
-    }
-    @Override
-    public void start() {
-        printInvalidCommandMessage();
-    }
 
     @Override
-    public void stateA() {
-       printInvalidCommandMessage();
+    public void transition(DFARunner dfa, char input) {
+        if (input == '0' || input == '1') {
+            System.out.print("State D");
+            dfa.setCurrentState(new StateStop());
+        } else {
+            System.out.println("Invalid input in State D.");
+        }
     }
+    }
+  
 
-    @Override
-    public void stateB() {
-     printInvalidCommandMessage();  
-    }
-
-    @Override
-    public void stateC() {
-        printInvalidCommandMessage();
-    }
-
-    @Override
-    public void stateD() {
-        System.out.println("D State");
-        dfaRunner.setState(new StateStop(dfaRunner));
-    }
-
-    @Override
-    public void stop() {
-       printInvalidCommandMessage();
-    }
-}
