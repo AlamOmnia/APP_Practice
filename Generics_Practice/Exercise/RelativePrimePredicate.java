@@ -18,3 +18,6 @@ public class RelativePrimePredicate implements UnaryPerdicate<Integer>{
     }
     
 }
+
+
+

@@ -5,13 +5,13 @@ import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
-public class RandomList extends RecursiveAction{
+public class ParallelRandomList extends RecursiveAction{
     private static final int THRESHOLD=10000;
     private double[] list;
     private int low;
     private int high;
 
-    public RandomList(double[] list, int low, int high){
+    public ParallelRandomList(double[] list, int low, int high){
         this.list=list;
         this.low=low;
         this.high=high;
@@ -23,8 +23,8 @@ public class RandomList extends RecursiveAction{
        }
        else{
         int mid= low+(high-low)/2;
-        RandomList left= new RandomList(list, low, mid);
-        RandomList right= new RandomList(list, mid, high);
+        ParallelRandomList left= new ParallelRandomList(list, low, mid);
+        ParallelRandomList right= new ParallelRandomList(list, mid, high);
         invokeAll(left,right);
        }
     }
@@ -37,7 +37,7 @@ public class RandomList extends RecursiveAction{
     public static void parallelAssigneValues(double[] list,String poolName){
         ForkJoinPool pool= new ForkJoinPool();
         long startTime= System.currentTimeMillis();
-        RandomList task= new RandomList(list, 0, list.length);
+        ParallelRandomList task= new ParallelRandomList(list, 0, list.length);
         pool.invoke(task);
         long endTime=System.currentTimeMillis();
         System.out.println("For: "+poolName+"Pooltime"+(endTime-startTime));

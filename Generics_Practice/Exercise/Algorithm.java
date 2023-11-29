@@ -16,7 +16,7 @@ public final class Algorithm {
         }
         return count;
     }
-///Check prime
+///ow do you invoke the following method to find the first integer in a list that is relatively prime to a list of specified integers?
     public static <T>int findPrime(List<T> l, int begin, int end, UnaryPerdicate<T> p){
         for(;begin<end;begin++){
             if(p.test(l.get(begin)))
