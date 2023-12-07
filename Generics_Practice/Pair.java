@@ -17,4 +17,8 @@ public class Pair <X,Y> {
         this.frist=frist;
         this.second=second;
     }
+    public String toString(){
+        return frist.getClass().getName()+":"+frist.toString()+", "
+        +second.getClass().getName()+":"+second.toString();
+    }
 }

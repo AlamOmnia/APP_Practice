@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.io.ObjectStreamException;
 
 public class SensorV2 {
-    public static void main (String [] args)throws NegativeSensorExpecption,OverloadSensorException{
+    public static void main (String [] args)throws NegativeSensorExpecption{
         
         BufferedReader br ;
         br=new BufferedReader(new InputStreamReader(System.in));
@@ -21,7 +21,6 @@ public class SensorV2 {
             System.out.println(e.toString());
         }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

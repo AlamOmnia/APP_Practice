@@ -1,4 +1,4 @@
-package StatePattern;
+package StatePattern.DFA;
 
 import java.io.PrintStream;
 import java.util.HashMap;
@@ -6,6 +6,10 @@ import java.util.Scanner;
 
 public class DFARunner {
     private DFAState currentState;
+
+    public DFAState getCurrentState() {
+        return currentState;
+    }
 
     public DFARunner() {
         currentState = new StateStart();
@@ -19,6 +23,8 @@ public class DFARunner {
         for (char input : inputString.toCharArray()) {
             currentState.transition(this, input);
         }
+
     }
+   
     }
 

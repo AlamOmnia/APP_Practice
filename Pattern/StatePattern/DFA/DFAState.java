@@ -1,4 +1,4 @@
-package StatePattern;
+package StatePattern.DFA;
 
 // DFAState.java (State interface)
 public abstract class DFAState {
